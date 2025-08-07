@@ -3,7 +3,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  // Get pathname: /api/feeling/sad → extract 'sad'
   const feel = request.nextUrl.pathname.split('/').pop();
 
   if (!feel) {
@@ -11,7 +10,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const response = await fetch('http://localhost:3001/api/feeling');
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/feeling`);
     const res = await response.json();
 
     const emotions = res.emotions?.emotions || [];
