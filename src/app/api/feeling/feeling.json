@@ -1,0 +1,784 @@
+{
+  "emotions": [
+    {
+      "emotion": "Angry",
+      "duas": [
+        {
+          "arabic": "اللهم أذهب غيض قلبي",
+          "transliteration": "Allahumma azhib gaydha qalbee",
+          "translation": "Oh Allah, remove anger from my heart"
+        },
+        {
+          "arabic": "أعوذ بالله من الشيطان الرجيم",
+          "transliteration": "Aʿūdhu billāhi min ash-shayṭān ar-rajīm",
+          "translation": "I seek refuge in Allah from the accursed Satan"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:134",
+        "translation": "Those who restrain their anger and pardon others, Allah loves those who do good."
+      },
+      "note": "Reflect on patience and forgiveness, as exemplified by the Prophet Muhammad (ﷺ)."
+    },
+    {
+      "emotion": "Anxious",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+          "transliteration": "Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan",
+          "translation": "O Allah, I seek Your protection from anxiety and grief"
+        },
+        {
+          "arabic": "حَسْبِيَ اللَّهُ لا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ",
+          "transliteration": "Ḥasbiyallāhu lā ilāha illā huwa ʿalayhi tawakkaltu",
+          "translation": "Allah is sufficient for me; there is no deity except Him; upon Him I rely"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 94:6",
+        "translation": "Indeed, with hardship [will be] ease."
+      },
+      "note": "Trust in Allah’s promise of relief after difficulty."
+    },
+    {
+      "emotion": "Bored",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ",
+          "transliteration": "Allahumma inni aʿūdhu bika min al-ʿajz wa-l-kasal",
+          "translation": "O Allah, I seek refuge in You from incapacity and laziness"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 90:4",
+        "translation": "And We have certainly created man in hardship."
+      },
+      "note": "Engage in dhikr or productive acts to combat boredom."
+    },
+    {
+      "emotion": "Confident",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ",
+          "transliteration": "Allahumma inni aʿūdhu bika min zawāli niʿmatika",
+          "translation": "O Allah, I seek refuge in You from the disappearance of Your blessings"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 93:7",
+        "translation": "And He found you lost and guided [you]."
+      },
+      "note": "Express gratitude for Allah’s guidance and blessings."
+    },
+    {
+      "emotion": "Confused",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",
+          "transliteration": "Allahumma yā muqallib al-qulūb, thabbit qalbī ʿalā dīnik",
+          "translation": "O Allah, Turner of hearts, make my heart firm upon Your religion"
+        },
+        {
+          "arabic": "اللَّهُمَّ اكْشِفْ عَنِّي كُلَّ بَلَاءٍ",
+          "transliteration": "Allahumma ikshif ʿannī kulla balāʾ",
+          "translation": "O Allah, remove from me all affliction"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:7",
+        "translation": "He it is Who has sent down to you the Book; in it are verses clear [muḥkamāt]..."
+      },
+      "note": "Seek clarity through istikhara (prayer for guidance)."
+    },
+    {
+      "emotion": "Content",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ قَنِّنِي بِمَا رَزَقْتَنِي",
+          "transliteration": "Allāhumma qannīnī bimā razaqtanī",
+          "translation": "O Allah, make me content with what You have provided me"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 98:8",
+        "translation": "And Allah is pleased with them, and they are pleased with Him."
+      },
+      "note": "Contentment comes from gratitude and trust in Allah’s decree."
+    },
+    {
+      "emotion": "Depressed",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+          "transliteration": "Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan",
+          "translation": "O Allah, I seek Your protection from anxiety and grief"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:139",
+        "translation": "So do not weaken and do not grieve, and you will be superior if you are [true] believers."
+      },
+      "note": "Combine dua with small acts of worship and professional support if needed."
+    },
+    {
+      "emotion": "Doubtful",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الشَّكِّ وَالشِّرْكِ",
+          "transliteration": "Allahumma inni aʿūdhu bika min ash-shakk wa-sh-shirk",
+          "translation": "O Allah, I seek refuge in You from doubt and associating partners with You"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 112:1",
+        "translation": "Say, ‘He is Allah, [who is] One.’"
+      },
+      "note": "Strengthen faith through learning and supplication."
+    },
+    {
+      "emotion": "Grateful",
+      "duas": [
+        {
+          "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَنْعَمَ عَلَيْنَا",
+          "transliteration": "Alḥamdulillāh alladhī anʿama ʿalaynā",
+          "translation": "All praise is due to Allah who has bestowed favors upon us"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 14:34",
+        "translation": "And if you should count the favors of Allah, you could not enumerate them."
+      },
+      "note": "Express gratitude through daily dhikr and charity."
+    },
+    {
+      "emotion": "Greedy",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْبُخْلِ",
+          "transliteration": "Allahumma inni aʿūdhu bika min al-bukhl",
+          "translation": "O Allah, I seek refuge in You from miserliness"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 59:9",
+        "translation": "And whoever is protected from the stinginess of his soul—it is those who will be successful."
+      },
+      "note": "Practice generosity to counter greed."
+    },
+    {
+      "emotion": "Guilty",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ",
+          "transliteration": "Allāhumma ighfir lī dhanbī kullahu",
+          "translation": "O Allah, forgive me all my sins"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:135",
+        "translation": "And those who, when they commit an immorality or wrong themselves, remember Allah and seek forgiveness..."
+      },
+      "note": "Repentance (tawbah) is key to alleviating guilt."
+    },
+    {
+      "emotion": "Happy",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ زَوَالِ نِعْمَتِكَ",
+          "transliteration": "Allahumma inni aʿūdhu bika min zawāli niʿmatika",
+          "translation": "O Allah, I seek refuge in You from the disappearance of Your blessings"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 10:58",
+        "translation": "Say, ‘In the bounty of Allah and in His mercy—therein let them rejoice...’"
+      },
+      "note": "Share happiness through acts of kindness."
+    },
+    {
+      "emotion": "Hurt",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+          "transliteration": "Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan",
+          "translation": "O Allah, I seek Your protection from anxiety and grief"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 94:6",
+        "translation": "Indeed, with hardship [will be] ease."
+      },
+      "note": "Reflect on the Prophet’s (ﷺ) patience during trials."
+    },
+    {
+      "emotion": "Hypocritical",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ طَهِّرْ قَلْبِي مِنَ النِّفَاقِ",
+          "transliteration": "Allahumma tahhir qalbī min an-nifāq",
+          "translation": "O Allah, purify my heart from hypocrisy"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 9:119",
+        "translation": "O you who have believed, fear Allah and be with those who are true."
+      },
+      "note": "Seek sincerity through self-reflection and dua."
+    },
+    {
+      "emotion": "Indecisive",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَسْتَخِيرُكَ بِعِلْمِكَ",
+          "transliteration": "Allahumma inni astakhiruk biʿilmik",
+          "translation": "O Allah, I seek Your guidance through Your knowledge (Istikhara prayer)"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:159",
+        "translation": "And consult them in the matter..."
+      },
+      "note": "Perform salat al-istikhara for decision-making."
+    },
+    {
+      "emotion": "Jealous",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ لَا تَجْعَلْ فِي قَلْبِي كَرَاهِيَّةً لِأَحَدٍ",
+          "transliteration": "Allahumma la tajʿal fī qalbī karāhiyyah li-aḥad",
+          "translation": "O Allah, do not place in my heart hatred for anyone"
+        },
+        {
+          "arabic": "اللَّهُمَّ نَقِّ قَلْبِي مِنَ الْحَسَدِ",
+          "transliteration": "Allahumma naqqi qalbī min al-ḥasad",
+          "translation": "O Allah, purify my heart from envy"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 59:10",
+        "translation": "And [there is a share for] those who came after them, saying, ‘Our Lord, forgive us and our brothers...’"
+      },
+      "note": "Counter jealousy with dua for others’ blessings."
+    },
+    {
+      "emotion": "Lazy",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ",
+          "transliteration": "Allahumma inni aʿūdhu bika min al-ʿajz wa-l-kasal",
+          "translation": "O Allah, I seek refuge in You from incapacity and laziness"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 53:39",
+        "translation": "And that there is not for man except that [good] for which he strives."
+      },
+      "note": "Set small goals to overcome laziness."
+    },
+    {
+      "emotion": "Lonely",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ ارْزُقْنِي حُبَّكَ وَحُبَّ مَا يَنْفَعُنِي حُبُّهُ عِنْدَكَ",
+          "transliteration": "Allāhumma-r-zuqnī ḥubbak, wa ḥubba ma-y-yanfaʿunī ḥubbuhu ʿindak",
+          "translation": "O Allah, grant me Your love and the love of those whose love benefits me with You"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 57:4",
+        "translation": "And He is with you wherever you are."
+      },
+      "note": "Find comfort in Allah’s constant presence."
+    },
+    {
+      "emotion": "Lost",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ اهْدِنِي لِلصِّرَاطِ الْمُسْتَقِيمِ",
+          "transliteration": "Allāhumma ihdinī li-ṣ-ṣirāṭ al-mustaqīm",
+          "translation": "O Allah, guide me to the straight path"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 1:6",
+        "translation": "Guide us to the straight path."
+      },
+      "note": "Seek guidance through Quran and dua."
+    },
+    {
+      "emotion": "Nervous",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+          "transliteration": "Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan",
+          "translation": "O Allah, I seek Your protection from anxiety and grief"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 94:6",
+        "translation": "Indeed, with hardship [will be] ease."
+      },
+      "note": "Practice deep breathing and dhikr for calm."
+    },
+    {
+      "emotion": "Overwhelmed",
+      "duas": [
+        {
+          "arabic": "حَسْبِيَ اللَّهُ لا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ",
+          "transliteration": "Ḥasbiyallāhu lā ilāha illā huwa ʿalayhi tawakkaltu",
+          "translation": "Allah is sufficient for me; there is no deity except Him; upon Him I rely"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:139",
+        "translation": "So do not weaken and do not grieve..."
+      },
+      "note": "Delegate tasks and rely on Allah."
+    },
+    {
+      "emotion": "Regret",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ اغْفِرْ لِي ذَنْبِي كُلَّهُ",
+          "transliteration": "Allāhumma ighfir lī dhanbī kullahu",
+          "translation": "O Allah, forgive me all my sins"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:135",
+        "translation": "And those who, when they commit an immorality or wrong themselves, remember Allah..."
+      },
+      "note": "Repent sincerely and resolve to improve."
+    },
+    {
+      "emotion": "Sad",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+          "transliteration": "Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan",
+          "translation": "O Allah, I seek Your protection from anxiety and grief"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 28:24",
+        "translation": "Rabbi innī limā anzalta illayya min khayrin faqīr (My Lord, truly I am in dire need of any good You send me)."
+      },
+      "note": "Recite Surah Ad-Duha for comfort."
+    },
+    {
+      "emotion": "Scared",
+      "duas": [
+        {
+          "arabic": "رَبِّ أَعُوذُ بِكَ مِنْ هَمَزَاتِ الشَّيَاطِينِ",
+          "transliteration": "Rabbi aʿūdhu bika min hamazāti-sh-shayāṭīn",
+          "translation": "My Lord, I seek protection with You from the promptings of the devils"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 23:97",
+        "translation": "Say, ‘My Lord, I seek refuge in You from the incitements of the devils.’"
+      },
+      "note": "Increase dhikr to dispel fear."
+    },
+    {
+      "emotion": "Suicidal",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+          "transliteration": "Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan",
+          "translation": "O Allah, I seek Your protection from anxiety and grief"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 4:29",
+        "translation": "And do not kill yourselves. Indeed, Allah is to you ever Merciful."
+      },
+      "note": "Seek immediate professional help alongside spiritual support."
+    },
+    {
+      "emotion": "Tired",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ",
+          "transliteration": "Allahumma inni aʿūdhu bika min al-ʿajz wa-l-kasal",
+          "translation": "O Allah, I seek refuge in You from incapacity and laziness"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 94:6",
+        "translation": "Indeed, with hardship [will be] ease."
+      },
+      "note": "Rest and rejuvenate through worship and self-care."
+    },
+    {
+      "emotion": "Unloved",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ ارْزُقْنِي حُبَّكَ وَحُبَّ مَا يَنْفَعُنِي حُبُّهُ عِنْدَكَ",
+          "transliteration": "Allāhumma-r-zuqnī ḥubbak, wa ḥubba ma-y-yanfaʿunī ḥubbuhu ʿindak",
+          "translation": "O Allah, grant me Your love and the love of those whose love benefits me with You"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 57:4",
+        "translation": "And He is with you wherever you are."
+      },
+      "note": "Seek Allah’s love to fill the void."
+    },
+    {
+      "emotion": "Weak",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ",
+          "transliteration": "Allahumma inni aʿūdhu bika min al-ʿajz wa-l-kasal",
+          "translation": "O Allah, I seek refuge in You from incapacity and laziness"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 2:286",
+        "translation": "Allah does not burden a soul beyond that it can bear..."
+      },
+      "note": "Rely on Allah’s strength to overcome weakness."
+    },
+    {
+      "emotion": "Anticipation",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَافِيَةَ",
+          "transliteration": "Allahumma inni asʾaluk al-ʿāfiyah",
+          "translation": "O Allah, I ask You for well-being"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 40:60",
+        "translation": "And your Lord says, ‘Call upon Me; I will respond to you.’"
+      },
+      "note": "Trust in Allah’s timing and plan."
+    },
+    {
+      "emotion": "Aroused",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ فِتْنَةِ الدُّنْيَا",
+          "transliteration": "Allahumma inni aʿūdhu bika min fitnat ad-dunyā",
+          "translation": "O Allah, I seek refuge in You from the trials of this world"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 24:30",
+        "translation": "And lower your gaze and guard your chastity..."
+      },
+      "note": "Seek modesty and self-control through dua."
+    },
+    {
+      "emotion": "Curious",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ زِدْنِي عِلْمًا",
+          "transliteration": "Allahumma zidnī ʿilman",
+          "translation": "O Allah, increase me in knowledge"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 20:114",
+        "translation": "Say, ‘My Lord, increase me in knowledge.’"
+      },
+      "note": "Channel curiosity into learning about faith."
+    },
+    {
+      "emotion": "Defeated",
+      "duas": [
+        {
+          "arabic": "حَسْبِيَ اللَّهُ لا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ",
+          "transliteration": "Ḥasbiyallāhu lā ilāha illā huwa ʿalayhi tawakkaltu",
+          "translation": "Allah is sufficient for me; there is no deity except Him; upon Him I rely"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:139",
+        "translation": "So do not weaken and do not grieve..."
+      },
+      "note": "Find strength in reliance on Allah."
+    },
+    {
+      "emotion": "Desire",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ فِتْنَةِ الدُّنْيَا",
+          "transliteration": "Allahumma inni aʿūdhu bika min fitnat ad-dunyā",
+          "translation": "O Allah, I seek refuge in You from the trials of this world"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:14",
+        "translation": "Beautified for people is the love of that which they desire..."
+      },
+      "note": "Seek lawful fulfillment of desires."
+    },
+    {
+      "emotion": "Desperate",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+          "transliteration": "Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan",
+          "translation": "O Allah, I seek Your protection from anxiety and grief"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 27:62",
+        "translation": "Is He [not best] who responds to the desperate one when he calls upon Him..."
+      },
+      "note": "Call upon Allah in times of desperation."
+    },
+    {
+      "emotion": "Determined",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الثَّبَاتَ فِي الْأَمْرِ",
+          "transliteration": "Allahumma inni asʾaluk ath-thabāt fil-amr",
+          "translation": "O Allah, I ask You for steadfastness in affairs"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 53:39",
+        "translation": "And that there is not for man except that [good] for which he strives."
+      },
+      "note": "Stay firm with dua and effort."
+    },
+    {
+      "emotion": "Disbelief",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الشَّكِّ وَالشِّرْكِ",
+          "transliteration": "Allahumma inni aʿūdhu bika min ash-shakk wa-sh-shirk",
+          "translation": "O Allah, I seek refuge in You from doubt and associating partners with You"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 112:1",
+        "translation": "Say, ‘He is Allah, [who is] One.’"
+      },
+      "note": "Strengthen faith through Quran recitation."
+    },
+    {
+      "emotion": "Envious",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ لَا تَجْعَلْ فِي قَلْبِي كَرَاهِيَّةً لِأَحَدٍ",
+          "transliteration": "Allahumma la tajʿal fī qalbī karāhiyyah li-aḥad",
+          "translation": "O Allah, do not place in my heart hatred for anyone"
+        },
+        {
+          "arabic": "اللَّهُمَّ نَقِّ قَلْبِي مِنَ الْحَسَدِ",
+          "transliteration": "Allahumma naqqi qalbī min al-ḥasad",
+          "translation": "O Allah, purify my heart from envy"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 59:10",
+        "translation": "And [there is a share for] those who came after them, saying, ‘Our Lord, forgive us and our brothers...’"
+      },
+      "note": "Pray for others’ blessings to counter envy."
+    },
+    {
+      "emotion": "Hatred",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ لَا تَجْعَلْ فِي قَلْبِي كَرَاهِيَّةً لِأَحَدٍ",
+          "transliteration": "Allahumma la tajʿal fī qalbī karāhiyyah li-aḥad",
+          "translation": "O Allah, do not place in my heart hatred for anyone"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 5:8",
+        "translation": "And do not let the hatred of a people prevent you from being just..."
+      },
+      "note": "Seek to replace hatred with forgiveness."
+    },
+    {
+      "emotion": "Humiliated",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ أَعِزَّنِي بِالدِّينِ",
+          "transliteration": "Allāhumma aʿizzanī bid-dīn",
+          "translation": "O Allah, grant me honor through faith"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 63:8",
+        "translation": "To Allah belongs all honor..."
+      },
+      "note": "Find dignity in submission to Allah."
+    },
+    {
+      "emotion": "Impatient",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الصَّبْرَ",
+          "transliteration": "Allahumma inni asʾaluk as-ṣabr",
+          "translation": "O Allah, I ask You for patience"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 11:115",
+        "translation": "And be patient, for indeed, Allah does not allow to be lost the reward of those who do good."
+      },
+      "note": "Practice patience through dhikr."
+    },
+    {
+      "emotion": "Insecure",
+      "duas": [
+        {
+          "arabic": "حَسْبِيَ اللَّهُ لا إِلَٰهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ",
+          "transliteration": "Ḥasbiyallāhu lā ilāha illā huwa ʿalayhi tawakkaltu",
+          "translation": "Allah is sufficient for me; there is no deity except Him; upon Him I rely"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 2:286",
+        "translation": "Allah does not burden a soul beyond that it can bear..."
+      },
+      "note": "Trust in Allah’s plan for security."
+    },
+    {
+      "emotion": "Irritated",
+      "duas": [
+        {
+          "arabic": "اللهم أذهب غيض قلبي",
+          "transliteration": "Allahumma azhib gaydha qalbee",
+          "translation": "Oh Allah, remove anger from my heart"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:134",
+        "translation": "Those who restrain their anger and pardon others..."
+      },
+      "note": "Practice forgiveness to calm irritation."
+    },
+    {
+      "emotion": "Love",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ ارْزُقْنِي حُبَّكَ وَحُبَّ مَا يَنْفَعُنِي حُبُّهُ عِنْدَكَ",
+          "transliteration": "Allāhumma-r-zuqnī ḥubbak, wa ḥubba ma-y-yanfaʿunī ḥubbuhu ʿindak",
+          "translation": "O Allah, grant me Your love and the love of those whose love benefits me with You"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 30:21",
+        "translation": "And among His signs is that He created for you from yourselves mates..."
+      },
+      "note": "Channel love toward Allah and lawful relationships."
+    },
+    {
+      "emotion": "Nostalgic",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَافِيَةَ",
+          "transliteration": "Allahumma inni asʾaluk al-ʿāfiyah",
+          "translation": "O Allah, I ask You for well-being"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 2:203",
+        "translation": "And remember Allah during [specific] numbered days..."
+      },
+      "note": "Reflect on past blessings with gratitude."
+    },
+    {
+      "emotion": "Offended",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ لَا تَجْعَلْ فِي قَلْبِي كَرَاهِيَّةً لِأَحَدٍ",
+          "transliteration": "Allahumma la tajʿal fī qalbī karāhiyyah li-aḥad",
+          "translation": "O Allah, do not place in my heart hatred for anyone"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 5:8",
+        "translation": "And do not let the hatred of a people prevent you from being just..."
+      },
+      "note": "Respond with patience and justice."
+    },
+    {
+      "emotion": "Peaceful",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ",
+          "transliteration": "Allāhumma antas-salām wa minkas-salām",
+          "translation": "O Allah, You are peace, and from You comes peace"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 14:23",
+        "translation": "Their greeting therein will be, ‘Peace!’"
+      },
+      "note": "Maintain peace through dhikr and gratitude."
+    },
+    {
+      "emotion": "Rage",
+      "duas": [
+        {
+          "arabic": "اللهم أذهب غيض قلبي",
+          "transliteration": "Allahumma azhib gaydha qalbee",
+          "translation": "Oh Allah, remove anger from my heart"
+        },
+        {
+          "arabic": "أعوذ بالله من الشيطان الرجيم",
+          "transliteration": "Aʿūdhu billāhi min ash-shayṭān ar-rajīm",
+          "translation": "I seek refuge in Allah from the accursed Satan"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 3:134",
+        "translation": "Those who restrain their anger and pardon others..."
+      },
+      "note": "Seek calm through dua and reflection."
+    },
+    {
+      "emotion": "Satisfied",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ قَنِّنِي بِمَا رَزَقْتَنِي",
+          "transliteration": "Allāhumma qannīnī bimā razaqtanī",
+          "translation": "O Allah, make me content with what You have provided me"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 98:8",
+        "translation": "And Allah is pleased with them, and they are pleased with Him."
+      },
+      "note": "Express gratitude for Allah’s provisions."
+    },
+    {
+      "emotion": "Uncertain",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ",
+          "transliteration": "Allahumma yā muqallib al-qulūb, thabbit qalbī ʿalā dīnik",
+          "translation": "O Allah, Turner of hearts, make my heart firm upon Your religion"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 64:11",
+        "translation": "And whoever believes in Allah—He will guide his heart..."
+      },
+      "note": "Seek certainty through faith and istikhara."
+    },
+    {
+      "emotion": "Uneasy",
+      "duas": [
+        {
+          "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحُزْنِ",
+          "transliteration": "Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan",
+          "translation": "O Allah, I seek Your protection from anxiety and grief"
+        }
+      ],
+      "quranic_verse": {
+        "reference": "Quran 94:6",
+        "translation": "Indeed, with hardship [will be] ease."
+      },
+      "note": "Find ease through trust in Allah."
+    }
+  ]
+}
