@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/feeling`);
+    const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/feeling`);
     const res = await response.json();
 
     const emotions = res.emotions?.emotions || [];
