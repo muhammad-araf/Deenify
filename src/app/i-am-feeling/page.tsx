@@ -1,74 +1,74 @@
 "use client"
 
 import { useEffect, useState } from "react"
-type EmotionData = { emotion: string };
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"
+
+type EmotionData = { emotion: string }
 
 const Page = () => {
-    const [datas, setData] = useState<EmotionData[]>([]);
-    const colorArray = ['#E6F0FA', '#F0E6F0', '#E0F4E0', '#FAE6E6', '#F4F0E0', '#E6F0E6'];
-    const randomColor = () => {
-        return colorArray[Math.floor(Math.random() * colorArray.length)];
-    }
-    const[isLoading, setIsLoading] = useState(true);
-    const router = useRouter();
-    useEffect(() => {
+  const [datas, setData] = useState<EmotionData[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const router = useRouter()
+
+  const colorArray = ['#E6F0FA', '#F0E6F0', '#E0F4E0', '#FAE6E6', '#F4F0E0', '#E6F0E6']
+  const randomColor = () => colorArray[Math.floor(Math.random() * colorArray.length)]
+
+    useEffect(()=>{
+          document.body.style.backgroundColor = "#292929ff";
+    },[])
+  useEffect(() => {
+    document.body.style.backgroundColor = "#292929ff"
     const getData = async () => {
-        try {
-        const response = await fetch('/api/feeling');
-        const res = await response.json();
-        console.log("API response:", res);
+      try {
+        const response = await fetch('/api/feeling')
+        const res = await response.json()
+        console.log("API response:", res)
 
         if (Array.isArray(res.emotions.emotions)) {
-            setIsLoading(false);
-            setData(res.emotions.emotions);
+          setData(res.emotions.emotions)
         } else {
-            setIsLoading(false);
-            console.error("emotions is not an array");
-            setData([]);
+          console.error("emotions is not an array")
         }
-        } catch (error) {
-            setIsLoading(false);
-        console.error("Error fetching data:", error);
-        setData([]);
-        }
-    };
-    getData();
-    }, []);
+      } catch (error) {
+        console.error("Error fetching data:", error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    getData()
+  }, [])
 
   return (
-    <div>
-        <div className="flex flex-col items-center  min-h-screen bg-transparent w-full">
-        <h1 className="text-3xl font-bold mb-4 pt-10 text-red-400 tracking-widest  ">I am Feeling...</h1>
-        <p className="text-sm mb-8 text-[#E26EE5] tracking-widest ">Select your emotion</p>
-        {
-            isLoading?
-            <div className="w-10 h-10 border-4 border-t-transparent border-purple-500 rounded-full animate-spin"></div>:
-            null
-        }
-        
-            <div className="flex flex-wrap w-170">
-            {datas.map((data, i) => (
-                <div
-                key={i}
-                className="w-full sm:w-1/2 md:w-1/3 p-2"
-                >
-                <div
-                className="rounded-lg shadow-md h-30 flex flex-col justify-center items-center cursor-pointer transition-transform transform hover:scale-105 p-4"
-                style={{ backgroundColor: randomColor() }}
-                onClick={() => {
-                    router.push(`/i-am-feeling/${data.emotion.toLowerCase()}`);
-                }}
-                >
-                    <h2 className="text-lg font-semibold text-black">{data.emotion}</h2>
-                    {/* <p className="text-gray-600">Hii</p> */}
-                </div>
-                </div>
-            ))}
-        </div>
-        </div>
+    <div className="min-h-screen flex flex-col items-center bg-transparent px-4">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 pt-10 text-white tracking-widest text-center">
+        I am Feeling...
+      </h1>
+      <p className="text-sm sm:text-base mb-8 text-gray-600 tracking-wider text-center">
+        Select your emotion
+      </p>
 
-        
+      {isLoading ? (
+        <div className="w-10 h-10 border-4 border-t-transparent border-purple-500 rounded-full animate-spin"></div>
+      ) : (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          {datas.map((data, i) => (
+            <div
+              key={i}
+              className="p-2 cursor-pointer transition-transform transform hover:scale-105"
+              onClick={() => router.push(`/i-am-feeling/${data.emotion.toLowerCase()}`)}
+            >
+              <div
+                className="rounded-lg shadow-md flex justify-center items-center p-6 h-24 text-center"
+                style={{ backgroundColor: randomColor() }}
+              >
+                <h2 className="text-base sm:text-lg font-semibold text-black">
+                  {data.emotion}
+                </h2>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

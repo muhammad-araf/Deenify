@@ -32,11 +32,11 @@ const Page = () => {
     <>
       {data ? (
         <div className="flex flex-col items-center min-h-screen bg-transparent w-full">
-          <p className="text-2xl mb-4 pt-10 text-[#9ECAD6] tracking-widest">
-            I am Feeling {data.emotion}
+          <p className="text-2xl mb-4 pt-10 text-white tracking-widest">
+            I am Feeling <strong>{data.emotion}</strong>
           </p>
 
-          <div className="w-full sm:w-1/2 md:w-1/3">
+          <div className="w-[92%] sm:w-1/2 md:w-1/3">
             {data.duas.map((dua, i: number) => (
               <div
                 key={i}
