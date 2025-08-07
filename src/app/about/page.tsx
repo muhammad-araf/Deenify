@@ -23,7 +23,7 @@ const Page = () => {
         <p className="text-md text-gray-300 mb-4">For any inquiries or feedback, feel free to reach out to us:</p>
         <div className="flex justify-center gap-4">
           <a
-            href="linkedin.com/in/muhammad-araf/"
+            href="https://linkedin.com/in/muhammad-araf/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-amber-400 text-black font-medium px-4 py-2 rounded-lg hover:bg-amber-300 transition"
