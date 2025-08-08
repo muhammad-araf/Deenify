@@ -95,12 +95,17 @@ const Page = () => {
             placeholder="Ask anything related to Islam"
             className="text-white flex-1 p-2 rounded-full bg-[#2E2E2E] border-none outline-none"
           />
+          {
+            message.trim() === "" ? null : (
           <button
             onClick={handleMessage}
             className="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition"
           >
             Send
           </button>
+            )
+          }
+
         </div>
       </div>
     </div>

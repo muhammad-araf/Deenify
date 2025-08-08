@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Denify",
+  title: "Deeeify",
   description: "An Feeling Dua and Islamic AI chatbot that provides authentic answers from the Quran and Hadith. Ask questions about Islam, Duas, prayers, and teachings — all in a structured and respectful format.",
   icons: {
     icon: "/image.ico", 
