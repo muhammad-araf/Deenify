@@ -4,11 +4,13 @@
 
 ---
 
-## Features
+## Features :
 
-- Conversational AI with Islamic context
-- Answers based only on Qur'an and Sahih Hadith
--  Emotional support with relevant duas via external API
+-  Conversational AI with Islamic context
+-  Answers based only on Qur'an and Sahih Hadith
+-  Tasbeeh (Tally Counter)
+-  Emotional support with relevant duas via API
+-  listen Quran instantly and Download it
 -  Markdown-formatted assistant replies
 -  Dark mode friendly UI with Tailwind CSS
 -  Secure environment variable usage
@@ -17,8 +19,8 @@
 ---
 
 ## Screenshots
-<img src="ss2.png" alt="Chat Interface" width="700"/>
 <img src="ss1.png" alt="Chat Interface" width="700"/>
+<img src="ss2.png" alt="Chat Interface" width="700"/>
 
 ---
 
@@ -27,8 +29,6 @@
 | Tech       | Description                        |
 |------------|------------------------------------|
 | Next.js    | React framework for SSR & routing  |
-| TypeScript | Static typing                      |
-| TailwindCSS| Utility-first UI styling           |
 
 ---
 ## Live
