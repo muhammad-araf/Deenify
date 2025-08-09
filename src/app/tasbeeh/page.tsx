@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 const Page = () => {
-    const[count,setCount] = useState("99")
+    const[count,setCount] = useState("0")
     const[Value,setValue] = useState(0);
     const[show ,setShow] = useState(false)
   return (

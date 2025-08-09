@@ -3,7 +3,7 @@ import React from 'react';
 
 const Page = () => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 bg-transparent text-white text-center">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10 bg-transparent text-white text-center mt-20">
       <h1 className="text-4xl font-semibold tracking-widest mb-6">About Us</h1>
 
       <p className="text-lg text-gray-300 max-w-2xl leading-relaxed">
@@ -23,20 +23,20 @@ const Page = () => {
         <p className="text-md text-gray-300 mb-4">For any inquiries or feedback, feel free to reach out to us:</p>
         <div className="flex justify-center gap-4">
           <a
-            href="https://linkedin.com/in/muhammad-araf/"
+            href="https://www.linkedin.com/in/muhammad-araf-b978b6333/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-amber-400 text-black font-medium px-4 py-2 rounded-lg hover:bg-amber-300 transition"
+            className="bg-green-400/50 text-white font-medium px-4 py-2 rounded-lg hover:bg-green-300 transition"
           >
             LinkedIn
           </a>
           <a
-            href="https://github.com/muhammad-araf"
+            href="https://github.com/muhammad-araf/Deenify"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-amber-400 text-black font-medium px-4 py-2 rounded-lg hover:bg-amber-300 transition"
+            className="bg-green-400/50 text-white font-medium px-4 py-2 rounded-lg hover:bg-green-300 transition"
           >
-            GitHub
+            Source Code
           </a>
         </div>
       </div>

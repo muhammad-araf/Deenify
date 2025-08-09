@@ -34,7 +34,7 @@ const Myheader = () => {
       </Link>
 
       {/* Desktop Nav */}
-<nav className="hidden md:flex bg-[#333333]/60 rounded-3xl backdrop-blur-sm mr-45">
+<nav className="hidden md:flex bg-[#57ff7331] backdrop-blur-lg rounded-3xl mr-45">
   <ul className="flex space-x-5">
     <li
       className={`relative p-4 px-5 ${
@@ -99,7 +99,6 @@ const Myheader = () => {
 
 
           <div></div>
-      {/* Mobile Menu Button */}
       <button
         className="md:hidden p-2 ml-2 text-white"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -108,19 +107,22 @@ const Myheader = () => {
       </button>
 
       {menuOpen && (
-        <nav className="absolute top-full left-0 w-full bg-[#1f1f1f] backdrop-blur-lg shadow-lg md:hidden">
+        <nav className="absolute top-full left-0 w-full bg-[#57ff7331] backdrop-blur-lg shadow-lg md:hidden rounded-4xl">
           <ul className="flex flex-col">
-            <li className="border-b border-gray-600 p-4">
+            <li className="border-b-2 border-green-200 p-4">
               <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>
             </li>
-            <li className="border-b border-gray-600 p-4">
+            <li className="border-b-2 border-green-200 p-4">
               <Link href="/i-am-feeling" onClick={() => setMenuOpen(false)}>I am Feeling</Link>
             </li>
-            <li className="border-b border-gray-600 p-4">
+            <li className="border-b-2 border-green-200 p-4">
               <Link href="/chat" onClick={() => setMenuOpen(false)}>Chat</Link>
             </li>
-            <li className="border-b border-gray-600 p-4">
+            <li className="border-b-2 border-green-200 p-4">
               <Link href="/quran" onClick={() => setMenuOpen(false)}>Quran</Link>
+            </li>
+            <li className="border-b-2 border-green-200 p-4">
+              <Link href="/tasbeeh" onClick={() => setMenuOpen(false)}>Tasbeeh</Link>
             </li>
             <li className="p-4">
               <Link href="/about" onClick={() => setMenuOpen(false)}>About</Link>

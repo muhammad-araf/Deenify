@@ -46,7 +46,8 @@ const Page = () => {
   }, [index]);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-[#11182700] to-[#132d24] text-white flex flex-col items-center p-6">
+    <div className="min-h-screen w-full bg-gradient-to-b from-[#11182700] to-[#132d24] text-white flex flex-col items-center p-6 ">
+      <div className="mt-20">
       <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-4 text-center drop-shadow-md">
         Qur&apos;an Audio
       </h1>
@@ -234,6 +235,7 @@ const Page = () => {
           )}
         </div>
       )}
+      </div>
     </div>
   );
 };

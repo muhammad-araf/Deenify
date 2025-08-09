@@ -63,7 +63,7 @@ const Page = () => {
   };
 
   return (
-    <div className="bg-gray-100 h-full dark:bg-transparent text-black dark:text-black px-4">
+    <div className="bg-gray-100 h-full dark:bg-transparent text-black dark:text-black px-4 mt-15">
       <div className="max-w-4xl mx-auto bg-transparent rounded-lg min-h-[80vh] pt-1 px-4 flex flex-col overflow-hidden">
         <div className="h-[650px] overflow-y-auto pr-4 pl-4 rounded-lg scroll-smooth overflow-x-hidden hide-scrollbar lg:h-[545px]">
           {chatHistory.map((msg, index) => (
@@ -93,7 +93,7 @@ const Page = () => {
               if (e.key === "Enter") handleMessage();
             }}
             placeholder="Ask anything related to Islam"
-            className="text-white flex-1 p-2 rounded-full bg-[#2E2E2E] border-none outline-none"
+            className="text-white flex-1 p-2 rounded-full bg-[#2E2E2E] border-none outline-none pl-6 text-xl"
           />
           {
             message.trim() === "" ? null : (
