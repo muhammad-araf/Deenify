@@ -31,23 +31,23 @@ const Page = () => {
   return (
     <>
       {data ? (
-        <div className="flex flex-col items-center min-h-screen bg-transparent w-full">
+        <div className="flex flex-col items-center min-h-screen bg-transparent w-full mt-20">
           <p className="text-2xl mb-4 pt-10 text-white tracking-widest">
-            I am Feeling <strong>{data.emotion}</strong>
+            <b>I am Feeling</b> <strong className="text-green-300">{data.emotion}</strong>
           </p>
 
           <div className="w-[92%] sm:w-1/2 md:w-1/3">
             {data.duas.map((dua, i: number) => (
               <div
                 key={i}
-                className="rounded-tl-[70px] rounded-br-[70px] shadow-md h-auto w-auto mx-auto flex flex-col justify-center items-center bg-[#ffeddc] text-black mb-4"
+                className="rounded-tl-[70px] rounded-br-[70px] shadow-md h-auto w-auto mx-auto flex flex-col justify-center items-center bg-[#E6FFE6] text-black mb-4"
               >
                 <div className="flex flex-col items-center m-10 text-center">
                   <strong>
                     <h2>#{i + 1}</h2>
                   </strong>
                   <strong>
-                    <h1 className="text-orange-400">&quot;{dua.arabic}&quot;</h1>
+                    <h1 className="text-green-400">&quot;{dua.arabic}&quot;</h1>
                   </strong>
                   <br />
                   {dua.transliteration}

@@ -16,7 +16,7 @@ const Myheader = () => {
   console.log(path)
 
   return (
-    <header className="flex items-center justify-between px-4 py-3 bg-transparent text-white relative z-50">
+    <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 py-3 bg-transparent text-white z-50">
       {/* Left: Logo */}
       
       <Link href="/" className="flex items-center">
@@ -34,45 +34,69 @@ const Myheader = () => {
       </Link>
 
       {/* Desktop Nav */}
-      <nav className="hidden md:flex bg-[#333333]/60 rounded-full backdrop-blur-sm mr-45">
-        <ul className="flex space-x-5">
-          <li className={`p-4 px-5 ${
-              path === "/?" ? "border-b-4 border-white-400" : ""
-            }`}>
-            <Link href="/" className="hover:text-white/80">
-              Home
-            </Link>
-          </li>
-          <li
-            className={`p-4 px-5 ${
-              path === "/i-am-feeling?" ? "border-b-4 border-white-400" : ""
-            }`}
-          >
-            <Link href="/i-am-feeling" className="hover:text-white/80">
-              I am Feeling
-            </Link>
-          </li>
-          <li className={`p-4 px-5 ${
-              path === "/chat?" ? "border-b-4 border-white-400" : ""
-            }`}>
-            <Link href="/chat" className="hover:text-white/80">
-              Chat
-            </Link>
-          </li>
-          <li className={`p-4 px-5 ${
-              path === "/quran?" ? "border-b-4 border-white-400" : ""
-            }`}>
-            <Link href="/quran" className="hover:text-white/80">
-              Quran
-            </Link>
-          </li>
-          <li className="p-4 px-5">
-            <Link href="/about" className="hover:text-white/80">
-              About
-            </Link>
-          </li>
-        </ul>
-      </nav>
+<nav className="hidden md:flex bg-[#333333]/60 rounded-3xl backdrop-blur-sm mr-45">
+  <ul className="flex space-x-5">
+    <li
+      className={`relative p-4 px-5 ${
+        path==='/?'
+          ? "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:border-b-2 after:border-green-200" 
+          : ""
+      }`}
+    >
+      <Link href="/" className="hover:text-white/80">Home</Link>
+    </li>
+
+    <li
+      className={`relative p-4 px-5 ${
+        path.startsWith("/i-am-feeling") 
+          ? "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:border-b-2 after:border-green-200" 
+          : ""
+      }`}
+    >
+      <Link href="/i-am-feeling" className="hover:text-white/80">I am Feeling</Link>
+    </li>
+
+    <li
+      className={`relative p-4 px-5 ${
+        path.startsWith('/chat')
+          ? "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:border-b-2 after:border-green-200" 
+          : ""
+      }`}
+    >
+      <Link href="/chat" className="hover:text-white/80">Chat</Link>
+    </li>
+
+    <li
+      className={`relative p-4 px-5 ${
+        path .startsWith('/quran') 
+          ? "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:border-b-2 after:border-green-200" 
+          : ""
+      }`}
+    >
+      <Link href="/quran" className="hover:text-white/80">Quran</Link>
+    </li>
+    <li
+      className={`relative p-4 px-5 ${
+        path .startsWith('/tasbeeh') 
+          ? "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:border-b-2 after:border-green-200" 
+          : ""
+      }`}
+    >
+      <Link href="/tasbeeh" className="hover:text-white/80">Tally Counter</Link>
+    </li>
+
+    <li
+      className={`relative p-4 px-5 ${
+        path .startsWith('/about') 
+          ? "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:border-b-2 after:border-green-200" 
+          : ""
+      }`}
+    >
+      <Link href="/about" className="hover:text-white/80">About</Link>
+    </li>
+  </ul>
+</nav>
+
 
           <div></div>
       {/* Mobile Menu Button */}

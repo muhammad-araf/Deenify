@@ -10,7 +10,15 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
 
-  const colorArray = ['#E6F0FA', '#F0E6F0', '#E0F4E0', '#FAE6E6', '#F4F0E0', '#E6F0E6']
+      const colorArray = [
+        '#E6FFE6', // light mint
+        '#F0FFF4', // very soft off-white green
+        '#D4F5E9', // pale aqua green
+        '#E6F7FA', // icy teal
+        '#F5FAE6', // light lemon-lime
+        '#E6FAF0'  // soft pastel mint
+      ];
+
   const randomColor = () => colorArray[Math.floor(Math.random() * colorArray.length)]
 
     useEffect(()=>{
@@ -39,16 +47,16 @@ const Page = () => {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-transparent px-4">
+    <div className="min-h-screen flex flex-col items-center bg-transparent px-4 mt-20">
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 pt-10 text-white tracking-widest text-center">
-        I am Feeling...
+        I am Feeling
       </h1>
-      <p className="text-sm sm:text-base mb-8 text-gray-600 tracking-wider text-center">
+      <p className="text-sm sm:text-base mb-8 text-green-200 tracking-wider text-center">
         Select your emotion
       </p>
 
       {isLoading ? (
-        <div className="w-10 h-10 border-4 border-t-transparent border-purple-500 rounded-full animate-spin"></div>
+        <div className="w-10 h-10 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
       ) : (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-4">
           {datas.map((data, i) => (
