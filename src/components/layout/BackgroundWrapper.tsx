@@ -9,13 +9,13 @@ export default function BackgroundWrapper({ children }: { children: React.ReactN
   const isFeeling = pathname.startsWith("/i-am-feeling");
   const isTasbeeh = pathname.startsWith("/tasbeeh");
   const isAbout = pathname.startsWith("/about");
-  
+  const isChat = pathname.startsWith("/chat");
 
   return (
     <div className="relative   text-black dark:text-white">
       {isHome && (
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{ backgroundImage: "url('/assets/images/image.png')" }}
         />
       )}
@@ -34,6 +34,12 @@ export default function BackgroundWrapper({ children }: { children: React.ReactN
       {isTasbeeh && (
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+          style={{ backgroundImage: "url('/assets/images/tasbeehbg.jpg')" }}
+        />
+      )}
+      {isChat && (
+        <div
+          className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-70"
           style={{ backgroundImage: "url('/assets/images/tasbeehbg.jpg')" }}
         />
       )}

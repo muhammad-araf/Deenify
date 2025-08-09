@@ -17,8 +17,6 @@ const Myheader = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 py-3 bg-transparent text-white z-50">
-      {/* Left: Logo */}
-      
       <Link href="/" className="flex items-center">
         <Image
           src={LogoImage}
@@ -33,7 +31,6 @@ const Myheader = () => {
         
       </Link>
 
-      {/* Desktop Nav */}
 <nav className="hidden md:flex bg-[#57ff7331] backdrop-blur-lg rounded-3xl mr-45">
   <ul className="flex space-x-5">
     <li
@@ -82,7 +79,7 @@ const Myheader = () => {
           : ""
       }`}
     >
-      <Link href="/tasbeeh" className="hover:text-white/80">Tally Counter</Link>
+      <Link href="/tasbeeh" className="hover:text-white/80">Tasbeeh</Link>
     </li>
 
     <li
@@ -107,7 +104,7 @@ const Myheader = () => {
       </button>
 
       {menuOpen && (
-        <nav className="absolute top-full left-0 w-full bg-[#57ff7331] backdrop-blur-lg shadow-lg md:hidden rounded-4xl">
+        <nav className="absolute top-full left-0 w-full bg-[#1e672a87] backdrop-blur-lg shadow-lg md:hidden rounded-4xl">
           <ul className="flex flex-col">
             <li className="border-b-2 border-green-200 p-4">
               <Link href="/" onClick={() => setMenuOpen(false)}>Home</Link>

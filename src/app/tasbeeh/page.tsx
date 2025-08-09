@@ -5,7 +5,7 @@ const Page = () => {
     const[Value,setValue] = useState(0);
     const[show ,setShow] = useState(false)
   return (
-<div className="min-h-screen w-full bg-gradient-to-b from-[#11182700] to-[#132d24] text-white flex flex-col items-center p-6">
+<div className="min-h-screen w-full bg-gradient-to-b from-[#11182700] to-[#132d24] text-white flex flex-col items-center p-6 mt-25 lg:mt-8">
     <div
     onClick={() => setCount((parseInt(count) + 1).toString())}
     className=' w-full h-[90hv] text-white flex flex-col items-center p-6 pb-30'
@@ -41,23 +41,26 @@ const Page = () => {
   {
     show?(
 <>
-<h1 className='text-2xl mb-4'>Set Value</h1>
-<div>
+<div className="w-full flex flex-col justify-center items-center gap-3">
   <input
     type="number"
-    className="bg-transparent border-2 border-green-500 p-2 rounded-4xl text-xl text-emerald-50"
+    className="bg-white/5 border border-green-500/40 px-4 py-3 rounded-full text-lg text-emerald-50 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all placeholder:text-emerald-200/50 shadow-sm"
+    placeholder="Enter number"
     value={Value}
     onChange={(e) => setValue(Number(e.target.value))}
   />
+  
   <button
-    className="p-2 rounded-4xl text-1xl select-none cursor-pointer bg-transparent border border-amber-50 ml-4"
+    className="px-6 py-3 rounded-full text-lg font-medium bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-400 hover:to-emerald-500 transition-all shadow-md hover:shadow-lg active:scale-95"
     onClick={() => {
-      setCount((Value).toString());
+        setShow(false)
+        setCount(Value.toString())
     }}
   >
-    ✅
+    Done
   </button>
-  </div>
+</div>
+
 </>
 
     ):null

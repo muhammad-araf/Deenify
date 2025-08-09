@@ -1,6 +1,6 @@
 "use client";
-
 import { useEffect, useState } from "react";
+
 interface AudioItem {
   reciter: string;
   url: string;
@@ -11,66 +11,57 @@ interface SurahData {
   surahNo: number;
   audio?: Record<string, AudioItem>;
 }
+
 const Page = () => {
   const [reciter, setReciter] = useState("");
-  const [audioURL, setAudioUrl] = useState<string>("");
+  const [audioURL, setAudioUrl] = useState("");
   const [index, setIndex] = useState("");
   const [data, setData] = useState<SurahData | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const handleSurah = async () => {
-      if (index === "") {
-        setLoading(false);
-        return;
-      }
-      if (parseInt(index) < 1 || parseInt(index) > 114) {
-        console.error("Invalid Surah index:", index);
-        setLoading(false);
-        return;
-      }
+    if (!index) return;
 
+    const handleSurah = async () => {
+      setLoading(true);
       try {
         const response = await fetch(`https://quranapi.pages.dev/api/${index}.json`);
-        const res = await response.json();
+        const res: SurahData = await response.json();
         setData(res);
-        console.log("Fetched result:", res);
-        setLoading(false);
+
+        const firstKey = Object.keys(res.audio ?? {})[0];
+        if (firstKey && res.audio) {
+          setReciter(res.audio[firstKey].reciter);
+          setAudioUrl(res.audio[firstKey].url);
+        } else {
+          setReciter("");
+          setAudioUrl("");
+        }
       } catch (err) {
         console.error("Error fetching surah:", err);
-        setLoading(false);
       }
+      setLoading(false);
     };
 
     handleSurah();
   }, [index]);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-[#11182700] to-[#132d24] text-white flex flex-col items-center p-6 ">
-      <div className="mt-20">
-      <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-4 text-center drop-shadow-md">
-        Qur&apos;an Audio
-      </h1>
-      <p className="text-white/70 text-center mb-10 max-w-xl">
-        Listen to recitations of the Noble Qur&apos;an in beautiful voices. Choose a Surah and then select your favorite reciter and also download it.
-      </p>
+    <div className="min-h-screen w-full bg-gradient-to-b from-[#11182700] to-[#132d24]  text-white flex flex-col items-center p-6">
+      <div className="mt-25 w-full max-w-2xl">
+        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-4 text-center">
+          Qur&apos;an Audio
+        </h1>
+        <p className="text-white/70 text-center mb-8">
+          Choose a Surah to see available reciters and listen instantly and Download it.
+        </p>
 
-      {/* SURAH SELECT CARD */}
-      <div className="w-full max-w-2xl bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 p-6 shadow-xl mb-10">
-        <label className="block text-lg font-medium text-white mb-2">
-          Select a Surah
-        </label>
-        <select
-          className="w-full p-3 rounded-lg bg-white text-black text-base shadow focus:ring-2 focus:ring-green-400"
-          onChange={(e) => {
-            setLoading(true);
-            const value = e.target.value;
-            setIndex(value);
-            setReciter("");
-            setAudioUrl("");
-          }}
-        >
-                      <option className="text-gray-500" value=""> Choose a Surah</option>
+        <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 p-5 shadow-lg mb-6">
+          <label className="block text-lg mb-2">Select a Surah</label>
+          <select
+            className="w-full p-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-green-400"
+            onChange={(e) => setIndex(e.target.value)}
+          >
             <option value="1">1. Al-Fatihah</option>
             <option value="2">2. Al-Baqarah</option>
             <option value="3">3. Al-&apos;Imran</option>
@@ -185,56 +176,48 @@ const Page = () => {
             <option value="112">112. Al-Ikhlas</option>
             <option value="113">113. Al-Falaq</option>
             <option value="114">114. An-Nas</option>
-        </select>
-      </div>
-
-      {/* SURAH DETAIL + RECITER CARD */}
-      {!loading && data && (
-        <div className="w-full max-w-2xl bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 p-6 shadow-xl">
-          <h2 className="text-2xl font-bold text-green-400 mb-2">{data.surahName}</h2>
-          <p className="text-white/70 mb-1">
-             Place of Revelation: <span className="text-white">{data.surahNameTranslation}</span>
-          </p>
-          <p className="text-white/70 mb-4">
-             Revelation Order: <span className="text-white">{data.surahNo}</span>
-          </p>
-
-          <label className="block text-lg font-medium text-white mb-2 mt-4">
-            🎙️ Choose Reciter
-          </label>
-          <select
-            className="w-full p-3 rounded-lg bg-white text-black text-base shadow focus:ring-2 focus:ring-green-400 mb-4"
-            onChange={(e) => {
-              const selectedKey = e.target.value;
-              const selectedAudio = data.audio?.[selectedKey];
-              if(selectedAudio){
-              setReciter(selectedAudio.reciter);
-              setAudioUrl(selectedAudio.url);
-              }
-            }}
-          >
-            <option value="">-- Select Reciter --</option>
-            {Object.entries(data.audio??{}).map(([key, value]) => (
-              <option key={key} value={key}>
-                {value.reciter}
-              </option>
-            ))}
           </select>
-
-          {audioURL && (
-            <div className="mt-6 text-center">
-              <p className="text-green-300 font-extrabold mb-5 text-3xl ">﷽</p>
-              <p className="text-green-300 font-medium mb-2 ">
-                🎧 Now Playing: <span className="text-white">{reciter}</span>
-              </p>
-              <audio controls className="w-full rounded-md shadow-md">
-                <source src={audioURL} type="audio/mpeg" />
-                Your browser does not support the audio element.
-              </audio>
-            </div>
-          )}
         </div>
-      )}
+
+        {!loading && data && data.audio && (
+          <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 p-5 shadow-lg">
+            <h2 className="text-2xl font-bold text-green-400 mb-2">{data.surahName}</h2>
+            <p className="text-white/70 mb-4">{data.surahNameTranslation}</p>
+
+            <label className="block text-lg mb-2">Select Reciter</label>
+            <select
+              className="w-full p-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-green-400"
+              value={reciter}
+              onChange={(e) => {
+                const selectedKey = Object.entries(data.audio ?? {}).find(
+                  ([, val]) => val.reciter === e.target.value
+                )?.[0];
+                if (selectedKey && data.audio) {
+                  setReciter(data.audio[selectedKey].reciter);
+                  setAudioUrl(data.audio[selectedKey].url);
+                }
+              }}
+            >
+              {Object.entries(data.audio).map(([key, val]) => (
+                <option key={key} value={val.reciter}>
+                  {val.reciter}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {audioURL && (
+          <div className="mt-6 bg-white/5 rounded-xl p-4 shadow-lg text-center">
+            <p className="text-green-300 font-extrabold text-3xl mb-3">﷽</p>
+            <p className="text-green-300 font-medium mb-2">
+              🎧 Now Playing: <span className="text-white">{reciter}</span>
+            </p>
+            <audio controls className="w-full rounded-md shadow-md">
+              <source src={audioURL} type="audio/mpeg" />
+            </audio>
+          </div>
+        )}
       </div>
     </div>
   );
