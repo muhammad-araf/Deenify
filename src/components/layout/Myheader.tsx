@@ -13,7 +13,6 @@ const Myheader = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const path = `${pathname}?${searchParams.toString()}`;
-  console.log(path)
 
   return (
     <header className="fixed top-0 left-0 w-full flex items-center justify-between px-4 py-3 bg-transparent text-white z-50">
@@ -74,6 +73,15 @@ const Myheader = () => {
     </li>
     <li
       className={`relative p-4 px-5 ${
+        path .startsWith('/hadith') 
+          ? "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:border-b-2 after:border-green-200" 
+          : ""
+      }`}
+    >
+      <Link href="/hadith" className="hover:text-white/80">Hadith</Link>
+    </li>
+    <li
+      className={`relative p-4 px-5 ${
         path .startsWith('/tasbeeh') 
           ? "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-10 after:border-b-2 after:border-green-200" 
           : ""
@@ -117,6 +125,9 @@ const Myheader = () => {
             </li>
             <li className="border-b-2 border-green-200 p-4">
               <Link href="/quran" onClick={() => setMenuOpen(false)}>Quran</Link>
+            </li>
+            <li className="border-b-2 border-green-200 p-4">
+              <Link href="/hadith" onClick={() => setMenuOpen(false)}>Hadith</Link>
             </li>
             <li className="border-b-2 border-green-200 p-4">
               <Link href="/tasbeeh" onClick={() => setMenuOpen(false)}>Tasbeeh</Link>

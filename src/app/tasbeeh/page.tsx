@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 const Page = () => {
     const[count,setCount] = useState("0")
     const[Value,setValue] = useState(0);
@@ -31,7 +32,9 @@ const Page = () => {
   >―</button>
   <button 
   className='p-4 bg-transparent rounded-4xl text-4xl  select-none cursor-pointer'
-    onClick={() => setCount((0).toString())}
+    onClick={() => {setCount((0).toString())
+      toast.success("Reset")
+    }}
   >⟳</button>
   <button 
   className='p-4 bg-transparent rounded-4xl text-4xl  select-none cursor-pointer'
@@ -55,6 +58,7 @@ const Page = () => {
     onClick={() => {
         setShow(false)
         setCount(Value.toString())
+        toast.success("Done")
     }}
   >
     Done

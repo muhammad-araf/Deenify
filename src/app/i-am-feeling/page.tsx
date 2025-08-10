@@ -45,7 +45,6 @@ export default function Page() {
       try {
         const response = await fetch("/api/feeling");
         const res = await response.json();
-        console.log("API response:", res);
 
         if (Array.isArray(res?.emotions.emotions)) {
           setEmotions(res.emotions.emotions);

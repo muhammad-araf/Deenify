@@ -10,6 +10,7 @@ export default function BackgroundWrapper({ children }: { children: React.ReactN
   const isTasbeeh = pathname.startsWith("/tasbeeh");
   const isAbout = pathname.startsWith("/about");
   const isChat = pathname.startsWith("/chat");
+  const isHadith = pathname.startsWith("/hadith")
 
   return (
     <div className="relative   text-black dark:text-white">
@@ -38,6 +39,12 @@ export default function BackgroundWrapper({ children }: { children: React.ReactN
         />
       )}
       {isChat && (
+        <div
+          className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+          style={{ backgroundImage: "url('/assets/images/tasbeehbg.jpg')" }}
+        />
+      )}
+      {isHadith && (
         <div
           className="fixed inset-0 bg-cover bg-center bg-no-repeat opacity-70"
           style={{ backgroundImage: "url('/assets/images/tasbeehbg.jpg')" }}

@@ -13,6 +13,7 @@
     "next": "15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-hot-toast": "^2.5.2",
     "react-markdown": "^10.1.0",
     "tailwind-scrollbar-hide": "^4.0.0"
   },
