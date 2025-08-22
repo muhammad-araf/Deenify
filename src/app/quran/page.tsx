@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { BookOpen, Play, Download, Volume2, Search, Star } from "lucide-react";
 
 interface AudioItem {
   reciter: string;
@@ -18,6 +19,131 @@ const Page = () => {
   const [index, setIndex] = useState("");
   const [data, setData] = useState<SurahData | null>(null);
   const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const surahs = [
+  { value: "1", name: "Al-Fatihah", translation: "The Opening" },
+  { value: "2", name: "Al-Baqarah", translation: "The Cow" },
+  { value: "3", name: "Al-'Imran", translation: "The Family of Imran" },
+  { value: "4", name: "An-Nisa'", translation: "The Women" },
+  { value: "5", name: "Al-Ma'idah", translation: "The Table" },
+  { value: "6", name: "Al-An'am", translation: "The Cattle" },
+  { value: "7", name: "Al-A'raf", translation: "The Heights" },
+  { value: "8", name: "Al-Anfal", translation: "The Spoils of War" },
+  { value: "9", name: "At-Taubah", translation: "The Repentance" },
+  { value: "10", name: "Yunus", translation: "Jonah" },
+  { value: "11", name: "Hud", translation: "Hud" },
+  { value: "12", name: "Yusuf", translation: "Joseph" },
+  { value: "13", name: "Ar-Ra'd", translation: "The Thunder" },
+  { value: "14", name: "Ibrahim", translation: "Abraham" },
+  { value: "15", name: "Al-Hijr", translation: "The Rocky Tract" },
+  { value: "16", name: "An-Nahl", translation: "The Bee" },
+  { value: "17", name: "Al-Isra", translation: "The Night Journey" },
+  { value: "18", name: "Al-Kahf", translation: "The Cave" },
+  { value: "19", name: "Maryam", translation: "Mary" },
+  { value: "20", name: "Ta Ha", translation: "Ta Ha" },
+  { value: "21", name: "Al-Anbiya", translation: "The Prophets" },
+  { value: "22", name: "Al-Hajj", translation: "The Pilgrimage" },
+  { value: "23", name: "Al-Mu'minun", translation: "The Believers" },
+  { value: "24", name: "An-Nur", translation: "The Light" },
+  { value: "25", name: "Al-Furqan", translation: "The Criterion" },
+  { value: "26", name: "Ash-Shu'ara", translation: "The Poets" },
+  { value: "27", name: "An-Naml", translation: "The Ant" },
+  { value: "28", name: "Al-Qasas", translation: "The Stories" },
+  { value: "29", name: "Al-Ankabut", translation: "The Spider" },
+  { value: "30", name: "Ar-Rum", translation: "The Romans" },
+  { value: "31", name: "Luqman", translation: "Luqman" },
+  { value: "32", name: "As-Sajdah", translation: "The Prostration" },
+  { value: "33", name: "Al-Ahzab", translation: "The Confederates" },
+  { value: "34", name: "Saba", translation: "Sheba" },
+  { value: "35", name: "Fatir", translation: "The Originator" },
+  { value: "36", name: "Ya Sin", translation: "Ya Sin" },
+  { value: "37", name: "As-Saffat", translation: "Those Ranged in Rows" },
+  { value: "38", name: "Sad", translation: "Sad" },
+  { value: "39", name: "Az-Zumar", translation: "The Groups" },
+  { value: "40", name: "Ghafir", translation: "The Forgiver" },
+  { value: "41", name: "Fussilat", translation: "Explained in Detail" },
+  { value: "42", name: "Ash-Shura", translation: "The Consultation" },
+  { value: "43", name: "Az-Zukhruf", translation: "The Gold Adornments" },
+  { value: "44", name: "Ad-Dukhan", translation: "The Smoke" },
+  { value: "45", name: "Al-Jathiyah", translation: "The Crouching" },
+  { value: "46", name: "Al-Ahqaf", translation: "The Wind-Curved Sandhills" },
+  { value: "47", name: "Muhammad", translation: "Muhammad" },
+  { value: "48", name: "Al-Fath", translation: "The Victory" },
+  { value: "49", name: "Al-Hujurat", translation: "The Rooms" },
+  { value: "50", name: "Qaf", translation: "Qaf" },
+  { value: "51", name: "Adh-Dhariyat", translation: "The Winnowing Winds" },
+  { value: "52", name: "At-Tur", translation: "The Mount" },
+  { value: "53", name: "An-Najm", translation: "The Star" },
+  { value: "54", name: "Al-Qamar", translation: "The Moon" },
+  { value: "55", name: "Ar-Rahman", translation: "The Beneficent" },
+  { value: "56", name: "Al-Waqi'ah", translation: "The Inevitable" },
+  { value: "57", name: "Al-Hadid", translation: "The Iron" },
+  { value: "58", name: "Al-Mujadila", translation: "The Woman Who Disputes" },
+  { value: "59", name: "Al-Hashr", translation: "The Exile" },
+  { value: "60", name: "Al-Mumtahanah", translation: "The Woman to be Examined" },
+  { value: "61", name: "As-Saff", translation: "The Ranks" },
+  { value: "62", name: "Al-Jumu'ah", translation: "The Congregation" },
+  { value: "63", name: "Al-Munafiqun", translation: "The Hypocrites" },
+  { value: "64", name: "At-Taghabun", translation: "The Mutual Disillusion" },
+  { value: "65", name: "At-Talaq", translation: "The Divorce" },
+  { value: "66", name: "At-Tahrim", translation: "The Prohibition" },
+  { value: "67", name: "Al-Mulk", translation: "The Sovereignty" },
+  { value: "68", name: "Al-Qalam", translation: "The Pen" },
+  { value: "69", name: "Al-Haqqah", translation: "The Inevitable" },
+  { value: "70", name: "Al-Ma'arij", translation: "The Ascending Stairways" },
+  { value: "71", name: "Nuh", translation: "Noah" },
+  { value: "72", name: "Al-Jinn", translation: "The Jinn" },
+  { value: "73", name: "Al-Muzzammil", translation: "The Enshrouded One" },
+  { value: "74", name: "Al-Muddaththir", translation: "The Cloaked One" },
+  { value: "75", name: "Al-Qiyamah", translation: "The Resurrection" },
+  { value: "76", name: "Al-Insan", translation: "Man" },
+  { value: "77", name: "Al-Mursalat", translation: "The Emissaries" },
+  { value: "78", name: "An-Naba", translation: "The Tidings" },
+  { value: "79", name: "An-Nazi'at", translation: "Those Who Drag Forth" },
+  { value: "80", name: "Abasa", translation: "He Frowned" },
+  { value: "81", name: "At-Takwir", translation: "The Overthrowing" },
+  { value: "82", name: "Al-Infitar", translation: "The Cleaving" },
+  { value: "83", name: "Al-Mutaffifin", translation: "Defrauding" },
+  { value: "84", name: "Al-Inshiqaq", translation: "The Splitting Open" },
+  { value: "85", name: "Al-Buruj", translation: "The Mansions of the Stars" },
+  { value: "86", name: "At-Tariq", translation: "The Morning Star" },
+  { value: "87", name: "Al-A'la", translation: "The Most High" },
+  { value: "88", name: "Al-Ghashiyah", translation: "The Overwhelming" },
+  { value: "89", name: "Al-Fajr", translation: "The Dawn" },
+  { value: "90", name: "Al-Balad", translation: "The City" },
+  { value: "91", name: "Ash-Shams", translation: "The Sun" },
+  { value: "92", name: "Al-Layl", translation: "The Night" },
+  { value: "93", name: "Ad-Duhaa", translation: "The Morning Hours" },
+  { value: "94", name: "Ash-Sharh", translation: "The Relief" },
+  { value: "95", name: "At-Tin", translation: "The Fig" },
+  { value: "96", name: "Al-'Alaq", translation: "The Clot" },
+  { value: "97", name: "Al-Qadr", translation: "The Power" },
+  { value: "98", name: "Al-Bayyina", translation: "The Clear Proof" },
+  { value: "99", name: "Az-Zalzalah", translation: "The Earthquake" },
+  { value: "100", name: "Al-Adiyat", translation: "The Courser" },
+  { value: "101", name: "Al-Qari'ah", translation: "The Calamity" },
+  { value: "102", name: "At-Takathur", translation: "Rivalry in World Increase" },
+  { value: "103", name: "Al-Asr", translation: "The Declining Day" },
+  { value: "104", name: "Al-Humazah", translation: "The Traducer" },
+  { value: "105", name: "Al-Fil", translation: "The Elephant" },
+  { value: "106", name: "Quraysh", translation: "Quraysh" },
+  { value: "107", name: "Al-Ma'un", translation: "Small Kindnesses" },
+  { value: "108", name: "Al-Kawthar", translation: "Abundance" },
+  { value: "109", name: "Al-Kafirun", translation: "The Disbelievers" },
+  { value: "110", name: "An-Nasr", translation: "The Divine Support" },
+  { value: "111", name: "Al-Masad", translation: "The Palm Fiber" },
+  { value: "112", name: "Al-Ikhlas", translation: "The Sincerity" },
+  { value: "113", name: "Al-Falaq", translation: "The Daybreak" },
+  { value: "114", name: "An-Nas", translation: "Mankind" }
+]
+;
+
+  const filteredSurahs = surahs.filter(surah => 
+    surah.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    surah.translation.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   useEffect(() => {
     if (!index) return;
@@ -46,178 +172,187 @@ const Page = () => {
     handleSurah();
   }, [index]);
 
-  return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-[#11182700] to-[#132d24]  text-white flex flex-col items-center p-6">
-      <div className="mt-25 w-full max-w-2xl">
-        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500 mb-4 text-center">
-          Qur&apos;an Audio
-        </h1>
-        <p className="text-white/70 text-center mb-8">
-          Choose a Surah to see available reciters and listen instantly and Download it.
-        </p>
+  const handleDownload = () => {
+    if (audioURL) {
+      const link = document.createElement('a');
+      link.href = audioURL;
+      link.download = `${data?.surahName}_${reciter}.mp3`;
+      link.click();
+    }
+  };
 
-        <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 p-5 shadow-lg mb-6">
-          <label className="block text-lg mb-2">Select a Surah</label>
-          <select
-            className="w-full p-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-green-400"
-            onChange={(e) => setIndex(e.target.value)}
-          >
-            <option value="1">1. Al-Fatihah</option>
-            <option value="2">2. Al-Baqarah</option>
-            <option value="3">3. Al-&apos;Imran</option>
-            <option value="4">4. An-Nisa&apos;</option>
-            <option value="5">5. Al-Ma&apos;idah</option>
-            <option value="6">6. Al-An&apos;am</option>
-            <option value="7">7. Al-A&apos;raf</option>
-            <option value="8">8. Al-Anfal</option>
-            <option value="9">9. At-Taubah</option>
-            <option value="10">10. Yunus</option>
-            <option value="11">11. Hud</option>
-            <option value="12">12. Yusuf</option>
-            <option value="13">13. Ar-Ra&apos;d</option>
-            <option value="14">14. Ibrahim</option>
-            <option value="15">15. Al-Hijr</option>
-            <option value="16">16. An-Nahl</option>
-            <option value="17">17. Al-Isra</option>
-            <option value="18">18. Al-Kahf</option>
-            <option value="19">19. Maryam</option>
-            <option value="20">20. Ta Ha</option>
-            <option value="21">21. Al-Anbiya&apos;</option>
-            <option value="22">22. Al-Hajj</option>
-            <option value="23">23. Al-Mu&apos;minun</option>
-            <option value="24">24. An-Nur</option>
-            <option value="25">25. Al-Furqan</option>
-            <option value="26">26. Ash-Shu&apos;ara&apos;</option>
-            <option value="27">27. An-Naml</option>
-            <option value="28">28. Al-Qasas</option>
-            <option value="29">29. Al-&apos;Ankabut</option>
-            <option value="30">30. Ar-Rum</option>
-            <option value="31">31. Luqman</option>
-            <option value="32">32. As-Sajdah</option>
-            <option value="33">33. Al-Ahzab</option>
-            <option value="34">34. Saba&apos;</option>
-            <option value="35">35. Fatir</option>
-            <option value="36">36. Ya Sin</option>
-            <option value="37">37. As-Saffat</option>
-            <option value="38">38. Sad</option>
-            <option value="39">39. Az-Zumar</option>
-            <option value="40">40. Ghafir</option>
-            <option value="41">41. Fussilat</option>
-            <option value="42">42. Ash-Shura</option>
-            <option value="43">43. Az-Zukhruf</option>
-            <option value="44">44. Ad-Dukhan</option>
-            <option value="45">45. Al-Jathiyah</option>
-            <option value="46">46. Al-Ahqaf</option>
-            <option value="47">47. Muhammad</option>
-            <option value="48">48. Al-Fath</option>
-            <option value="49">49. Al-Hujurat</option>
-            <option value="50">50. Qaf</option>
-            <option value="51">51. Ad-Dhariyat</option>
-            <option value="52">52. At-Tur</option>
-            <option value="53">53. An-Najm</option>
-            <option value="54">54. Al-Qamar</option>
-            <option value="55">55. Ar-Rahman</option>
-            <option value="56">56. Al-Waqi&apos;ah</option>
-            <option value="57">57. Al-Hadid</option>
-            <option value="58">58. Al-Mujadilah</option>
-            <option value="59">59. Al-Hashr</option>
-            <option value="60">60. Al-Mumtahanah</option>
-            <option value="61">61. As-Saff</option>
-            <option value="62">62. Al-Jumu&apos;ah</option>
-            <option value="63">63. Al-Munafiqun</option>
-            <option value="64">64. At-Taghabun</option>
-            <option value="65">65. At-Talaq</option>
-            <option value="66">66. At-Tahrim</option>
-            <option value="67">67. Al-Mulk</option>
-            <option value="68">68. Al-Qalam</option>
-            <option value="69">69. Al-Haqqah</option>
-            <option value="70">70. Al-Ma&apos;arij</option>
-            <option value="71">71. Nuh</option>
-            <option value="72">72. Al-Jinn</option>
-            <option value="73">73. Al-Muzzammil</option>
-            <option value="74">74. Al-Muddaththir</option>
-            <option value="75">75. Al-Qiyamah</option>
-            <option value="76">76. Al-Insan</option>
-            <option value="77">77. Al-Mursalat</option>
-            <option value="78">78. An-Naba&apos;</option>
-            <option value="79">79. An-Nazi&apos;at</option>
-            <option value="80">80. &apos;Abasa</option>
-            <option value="81">81. At-Takwir</option>
-            <option value="82">82. Al-Infitar</option>
-            <option value="83">83. Al-Mutaffifin</option>
-            <option value="84">84. Al-Inshiqaq</option>
-            <option value="85">85. Al-Buruj</option>
-            <option value="86">86. At-Tariq</option>
-            <option value="87">87. Al-A&apos;la</option>
-            <option value="88">88. Al-Ghashiyah</option>
-            <option value="89">89. Al-Fajr</option>
-            <option value="90">90. Al-Balad</option>
-            <option value="91">91. Ash-Shams</option>
-            <option value="92">92. Al-Lail</option>
-            <option value="93">93. Ad-Duha</option>
-            <option value="94">94. Ash-Sharh</option>
-            <option value="95">95. At-Tin</option>
-            <option value="96">96. Al-&apos;Alaq</option>
-            <option value="97">97. Al-Qadr</option>
-            <option value="98">98. Al-Bayyinah</option>
-            <option value="99">99. Al-Zilzal</option>
-            <option value="100">100. Al-&apos;Adiyat</option>
-            <option value="101">101. Al-Qari&apos;ah</option>
-            <option value="102">102. At-Takathur</option>
-            <option value="103">103. Al-&apos;Asr</option>
-            <option value="104">104. Al-Humazah</option>
-            <option value="105">105. Al-Fil</option>
-            <option value="106">106. Quraish</option>
-            <option value="107">107. Al-Ma&apos;un</option>
-            <option value="108">108. Al-Kauthar</option>
-            <option value="109">109. Al-Kafirun</option>
-            <option value="110">110. An-Nasr</option>
-            <option value="111">111. Al-Masad</option>
-            <option value="112">112. Al-Ikhlas</option>
-            <option value="113">113. Al-Falaq</option>
-            <option value="114">114. An-Nas</option>
-          </select>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-20">
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-6 fade-in">
+            <BookOpen className="w-4 h-4 mr-2" />
+            Quran Audio
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 slide-up">
+            Qur&apos;an Audio
+          </h1>
+          
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto slide-up">
+            Listen to beautiful Quranic recitations from renowned reciters around the world.
+            Choose a Surah and immerse yourself in the divine words.
+          </p>
         </div>
 
-        {!loading && data && data.audio && (
-          <div className="bg-white/5 backdrop-blur-lg rounded-2xl border border-white/20 p-5 shadow-lg">
-            <h2 className="text-2xl font-bold text-green-400 mb-2">{data.surahName}</h2>
-            <p className="text-white/70 mb-4">{data.surahNameTranslation}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-2">
+            <div className="card p-6 mb-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 flex items-center">
+                <BookOpen className="w-6 h-6 mr-2 text-green-600" />
+                Select a Surah
+              </h2>
+              
+              <div className="relative mb-4">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search Surahs..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="text-gray-950 w-full pl-10 pr-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                />
+              </div>
 
-            <label className="block text-lg mb-2">Select Reciter</label>
-            <select
-              className="w-full p-3 rounded-lg bg-white text-black focus:ring-2 focus:ring-green-400"
-              value={reciter}
-              onChange={(e) => {
-                const selectedKey = Object.entries(data.audio ?? {}).find(
-                  ([, val]) => val.reciter === e.target.value
-                )?.[0];
-                if (selectedKey && data.audio) {
-                  setReciter(data.audio[selectedKey].reciter);
-                  setAudioUrl(data.audio[selectedKey].url);
-                }
-              }}
-            >
-              {Object.entries(data.audio).map(([key, val]) => (
-                <option key={key} value={val.reciter}>
-                  {val.reciter}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-96 overflow-y-auto ">
+                {filteredSurahs.map((surah) => (
+                  <button
+                    key={surah.value}
+                    onClick={() => setIndex(surah.value)}
+                    className={`p-4 text-left rounded-lg border-2 transition-all duration-200 cursor-pointer ${
+                      index === surah.value
+                        ? 'border-green-500 bg-green-50'
+                        : 'border-gray-200 hover:border-green-300 hover:bg-green-50'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <h3 className="font-semibold text-gray-900">{surah.value}. {surah.name}</h3>
+                        <p className="text-sm text-gray-600">{surah.translation}</p>
+                      </div>
+                      {index === surah.value && (
+                        <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                          <Play className="w-3 h-3 text-white" />
+                        </div>
+                      )}
+                    </div>
+                  </button>
+                ))}
+              </div>
+            </div>
 
-        {audioURL && (
-          <div className="mt-6 bg-white/5 rounded-xl p-4 shadow-lg text-center">
-            <p className="text-green-300 font-extrabold text-3xl mb-3">﷽</p>
-            <p className="text-green-300 font-medium mb-2">
-              🎧 Now Playing: <span className="text-white">{reciter}</span>
-            </p>
-            <audio controls className="w-full rounded-md shadow-md">
-              <source src={audioURL} type="audio/mpeg" />
-            </audio>
+            {!loading && data && data.audio && (
+              <div className="card p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                  <Volume2 className="w-5 h-5 mr-2 text-green-600" />
+                  Select Reciter
+                </h3>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {Object.entries(data.audio).map(([key, val]) => (
+                    <button
+                      key={key}
+                      onClick={() => {
+                        setReciter(val.reciter);
+                        setAudioUrl(val.url);
+                      }}
+                      className={`p-3 text-left rounded-lg border-2 transition-all duration-200 cursor-pointer ${
+                        reciter === val.reciter
+                          ? 'border-green-500 bg-green-50'
+                          : 'border-gray-200 hover:border-green-300 hover:bg-green-50'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-gray-900">{val.reciter}</span>
+                        {reciter === val.reciter && (
+                          <Star className="w-4 h-4 text-green-500 fill-current" />
+                        )}
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-        )}
+
+          <div className="lg:col-span-1">
+            <div className="sticky top-24">
+              {data && (
+                <div className="card p-6 mb-6">
+                  <div className="text-center mb-6">
+                    <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <BookOpen className="w-10 h-10 text-white" />
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                      {data.surahName}
+                    </h3>
+                    <p className="text-gray-600 mb-4">{data.surahNameTranslation}</p>
+                    
+                    {reciter && (
+                      <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+                        <Volume2 className="w-4 h-4 mr-1" />
+                        {reciter}
+                      </div>
+                    )}
+                  </div>
+
+                  {audioURL && (
+                    <div className="space-y-4">
+                      <div className="text-center py-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-lg">
+                        <p className="text-3xl text-green-600 font-arabic mb-2">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                        <p className="text-sm text-gray-600">In the name of Allah, the Most Gracious, the Most Merciful</p>
+                      </div>
+
+                      <div className="bg-gray-50 rounded-lg p-4">
+                        <audio 
+                          controls 
+                          className="w-full"
+                          onPlay={() => setIsPlaying(true)}
+                          onPause={() => setIsPlaying(false)}
+                        >
+                          <source src={audioURL} type="audio/mpeg" />
+                          Your browser does not support the audio element.
+                        </audio>
+                      </div>
+
+                      <button
+                        onClick={handleDownload}
+                        className="w-full btn btn-secondary flex items-center justify-center space-x-2"
+                      >
+                        <Download className="w-5 h-5" />
+                        <span>Download Audio</span>
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {loading && (
+                <div className="card p-6 text-center">
+                  <div className="w-16 h-16 border-4 border-t-transparent border-green-500 rounded-full animate-spin mx-auto mb-4"></div>
+                  <p className="text-gray-600">Loading Surah...</p>
+                </div>
+              )}
+
+              {!index && (
+                <div className="card p-6 text-center">
+                  <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BookOpen className="w-8 h-8 text-gray-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Select a Surah</h3>
+                  <p className="text-gray-600 text-sm">Choose a Surah from the list to start listening</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

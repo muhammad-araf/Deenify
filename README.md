@@ -19,8 +19,10 @@
 ---
 
 ## Screenshots
-<img src="ss1.png" alt="Chat Interface" width="700"/>
-<img src="ss2.png" alt="Chat Interface" width="700"/>
+<img src="ss2.png" alt="Chat Interface" width="800"/>
+<img src="ss3.png" alt="Chat Interface" width="800"/>
+<img src="ss1.png" alt="Chat Interface" width="800"/>
+<img src="ss4.png" alt="Chat Interface" width="800"/>
 
 ---
 

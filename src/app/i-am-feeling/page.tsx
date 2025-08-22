@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { ArrowLeft, Heart, BookOpen, Sparkles } from "lucide-react";
 
 type Dua = {
   arabic: string;
@@ -18,14 +19,13 @@ type EmotionData = {
   quranic_verse?: QuranicVerse;
   note?: string;
 };
-
-const colorArray = [
-  "#E6FFE6",
-  "#F0FFF4",
-  "#D4F5E9",
-  "#E6F7FA",
-  "#F5FAE6",
-  "#E6FAF0",
+const emotionColors = [
+  "from-pink-100 to-rose-100 border-pink-200 hover:border-pink-300",
+  "from-blue-100 to-indigo-100 border-blue-200 hover:border-blue-300",
+  "from-green-100 to-emerald-100 border-green-200 hover:border-green-300",
+  "from-purple-100 to-violet-100 border-purple-200 hover:border-purple-300",
+  "from-amber-100 to-orange-100 border-amber-200 hover:border-amber-300",
+  "from-teal-100 to-cyan-100 border-teal-200 hover:border-teal-300",
 ];
 
 export default function Page() {
@@ -33,12 +33,8 @@ export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
   const [selectedEmotion, setSelectedEmotion] = useState<string | null>(null);
 
-  const randomColor = () =>
-    colorArray[Math.floor(Math.random() * colorArray.length)];
-
-  useEffect(() => {
-    document.body.style.backgroundColor = "#292929ff";
-  }, []);
+  const getEmotionColor = (index: number) =>
+    emotionColors[index % emotionColors.length];
 
   useEffect(() => {
     const getData = async () => {
@@ -62,8 +58,11 @@ export default function Page() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="w-10 h-10 border-4 border-t-transparent border-green-500 rounded-full animate-spin"></div>
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-t-transparent border-green-500 rounded-full animate-spin mx-auto mb-4"></div>
+          {/* <p className="text-gray-600 text-lg">Loading emotions...</p> */}
+        </div>
       </div>
     );
   }
@@ -73,81 +72,162 @@ export default function Page() {
       (e) => e.emotion.toLowerCase() === selectedEmotion
     );
 
-return (
-  <div className="flex flex-col items-center min-h-screen w-full px-4 mt-20">
-    <p className="text-2xl mb-4 pt-10 text-white tracking-widest text-center">
-      <b>I am Feeling</b>{" "}
-      <strong className="text-green-300">{emotionData?.emotion}</strong>
-    </p>
-
-    <div className="bg-[#1f4037] text-white p-6 rounded-lg shadow-lg w-full sm:w-2/3 lg:w-1/2 space-y-6">
-      
-      {emotionData?.quranic_verse && (
-        <div className="text-center">
-          <p className="italic text-lg font-semibold">
-            {emotionData.quranic_verse.reference}
-          </p>
-          <p className="mt-2">{emotionData.quranic_verse.translation}</p>
-        </div>
-      )}
-
-      <div>
-        {emotionData?.duas?.map((dua, i) => (
-          <div key={i} className="bg-green-200/10 text-black rounded-lg p-4 mb-4">
-            <h1 className="text-white font-bold text-2xl mt-2">
-              {dua.arabic}
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-20">
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
+              <Heart className="w-4 h-4 mr-2" />
+              Emotional Support
+            </div>
+            
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+              I am Feeling{" "}
+              <span className="text-green-600">{emotionData?.emotion}</span>
             </h1>
-            <p className="mt-2">{dua.transliteration}</p>
-            <p className="mt-2 text-white/60">{dua.translation}</p>
+            
+            <p className="text-gray-600 text-lg">
+              Find comfort and guidance through Islamic wisdom
+            </p>
           </div>
-        ))}
-      </div>
 
-      {emotionData?.note && (
-        <div className="bg-yellow-100/40 text-black p-4 rounded-lg text-center">
-          <p className="font-medium">
-            <strong>Note: </strong>{emotionData.note}
-          </p>
+          <div className="space-y-8">
+            {emotionData?.quranic_verse && (
+              <div className="card p-8 text-center">
+                <div className="flex items-center justify-center mb-4">
+                  <BookOpen className="w-6 h-6 text-green-600 mr-2" />
+                  <span className="text-green-600 font-semibold">Quranic Guidance</span>
+                </div>
+                
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  {emotionData.quranic_verse.reference}
+                </h3>
+                
+                <p className="text-gray-700 text-lg leading-relaxed italic">
+                  &quot;{emotionData.quranic_verse.translation}&quot;
+                </p>
+              </div>
+            )}
+
+            {emotionData?.duas && emotionData.duas.length > 0 && (
+              <div className="space-y-6">
+                <div className="text-center">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                    Recommended Duas
+                  </h2>
+                  <p className="text-gray-600">
+                    Supplications to help you through this feeling
+                  </p>
+                </div>
+
+                {emotionData.duas.map((dua, i) => (
+                  <div key={i} className="card p-8">
+                    <div className="text-center mb-6">
+                      <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
+                        Dua {i + 1}
+                      </div>
+                    </div>
+
+                    <div className="text-center mb-6 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
+                      <p className="text-2xl md:text-3xl font-arabic text-gray-900 leading-relaxed" dir="rtl">
+                        {dua.arabic}
+                      </p>
+                    </div>
+
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                        Transliteration
+                      </h4>
+                      <p className="text-lg text-gray-700 italic">
+                        {dua.transliteration}
+                      </p>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+                        Translation
+                      </h4>
+                      <p className="text-lg text-gray-700">
+                        {dua.translation}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {emotionData?.note && (
+              <div className="card p-6 bg-gradient-to-r from-amber-50 to-orange-50 border-amber-200">
+                <div className="flex items-start">
+                  <Sparkles className="w-6 h-6 text-amber-600 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-amber-800 mb-2">Note</h4>
+                    <p className="text-amber-700">{emotionData.note}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="text-center mt-12">
+            <button
+              onClick={() => setSelectedEmotion(null)}
+              className="btn btn-secondary flex items-center space-x-2 mx-auto cursor-pointer"
+            >
+              <ArrowLeft size={20} />
+              <span>Back to Emotions</span>
+            </button>
+          </div>
         </div>
-      )}
-    </div>
-
-    <button
-      onClick={() => setSelectedEmotion(null)}
-      className="mt-6 px-4 py-2 bg-green-400 text-black rounded-lg hover:bg-green-500 transition"
-    >
-      ◀ Back
-    </button>
-  </div>
-);
+      </div>
+    );
   }
 
   return (
-    <div className="min-h-screen flex flex-col items-center px-4 mt-20">
-      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 pt-10 text-white tracking-widest text-center">
-        I am Feeling
-      </h1>
-      <p className="text-sm sm:text-base mb-8 text-green-200 tracking-wider text-center">
-        Select your emotion
-      </p>
-
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {emotions.map((emotion, i) => (
-          <div
-            key={i}
-            className="p-2 cursor-pointer transition-transform transform hover:scale-105"
-            onClick={() => setSelectedEmotion(emotion.emotion.toLowerCase())}
-          >
-            <div
-              className="rounded-lg shadow-md flex justify-center items-center p-6 h-24 text-center"
-              style={{ backgroundColor: randomColor() }}
-            >
-              <h2 className="text-base sm:text-lg font-semibold text-black">
-                {emotion.emotion}
-              </h2>
-            </div>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 pt-20">
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-6 fade-in">
+            <Heart className="w-4 h-4 mr-2" />
+            Emotional Support
           </div>
-        ))}
+          
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 slide-up">
+            I am Feeling
+          </h1>
+          
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto slide-up">
+            Select your current emotion to receive personalized Islamic guidance, 
+            duas, and Quranic verses for comfort and support.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+          {emotions.map((emotion, i) => (
+            <button
+              key={i}
+              className={`group p-6 rounded-xl border-2 transition-all duration-300 hover:scale-102 hover:shadow-lg bg-gradient-to-br ${getEmotionColor(i)} fade-in cursor-pointer`}
+              style={{ animationDelay: `${i * 50}ms` }}
+              onClick={() => setSelectedEmotion(emotion.emotion.toLowerCase())}
+            >
+              <div className="text-center">
+                <div className="w-12 h-12 mx-auto mb-3 rounded-full bg-white/50 flex items-center justify-center group-hover:bg-white/70 transition-colors">
+                  <Heart className="w-6 h-6 text-gray-700" />
+                </div>
+                
+                <h3 className="text-sm md:text-base font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
+                  {emotion.emotion}
+                </h3>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        <div className="text-center mt-12 mb-0">
+          <p className="animate-glow text-l font-bold text-green-600">
+            Can&apos;t find your emotion? Try the closest one that matches your feelings.
+          </p>
+        </div>
       </div>
     </div>
   );
