@@ -12,16 +12,14 @@
 -  Emotional support with relevant duas via API
 -  listen Quran instantly and Download it
 -  Markdown-formatted assistant replies
--  Dark mode friendly UI with Tailwind CSS
--  Secure environment variable usage
--  Deployed on Vercel
+-  Light mode friendly UI with Tailwind CSS
 
 ---
 
 ## Screenshots
+<img src="ss1.png" alt="Chat Interface" width="800"/>
 <img src="ss2.png" alt="Chat Interface" width="800"/>
 <img src="ss3.png" alt="Chat Interface" width="800"/>
-<img src="ss1.png" alt="Chat Interface" width="800"/>
 <img src="ss4.png" alt="Chat Interface" width="800"/>
 
 ---
